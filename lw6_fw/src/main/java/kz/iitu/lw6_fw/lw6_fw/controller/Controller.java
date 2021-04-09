@@ -47,4 +47,8 @@ public class Controller {
     public void returnBook(Users users, Book book){
         reservationService.returnBook(users, book);
     }
+
+    public void returnBook2(Users users, Book book){
+        reservationService.returnBook(users, book);
+    }
 }
