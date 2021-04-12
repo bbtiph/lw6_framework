@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 @Service
@@ -22,14 +23,14 @@ public class ReservationServiceImpl implements ReservationService {
     private ReservationRepository reservationRepository;
     Scanner in = new Scanner(System.in);
     @Override
-    public void issueBook(Users user, Book book) {
+    public Reservation issueBook(Users user, Book book, int countDay) {
 
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Calendar cal = Calendar.getInstance();
         String curdate = dateFormat.format(cal.getTime());
 
-        System.out.println("Enter count of day: ");
-        int countDay = in.nextInt();
+        //System.out.println("Enter count of day: ");
+        //int countDay = in.nextInt();
 
         //return date
         cal.add(Calendar.DATE, countDay);
@@ -41,17 +42,17 @@ public class ReservationServiceImpl implements ReservationService {
         reservation.setBook(book);
         reservation.setUser(user);
         reservationRepository.save(reservation);
-        System.out.println(reservation);
+        return (reservation);
     }
 
     @Override
-    public void booksInBasket(Users user) {
-        System.out.println(reservationRepository.findByUser(user));
+    public List<Reservation> booksInBasket(Users user) {
+        return (reservationRepository.findByUser(user));
     }
 
     @Override
-    public void findAll() {
-        System.out.println(reservationRepository.findAll());
+    public List<Reservation> findAll() {
+        return reservationRepository.findAll();
     }
 
     @Override

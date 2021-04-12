@@ -14,12 +14,14 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
     Scanner in = new Scanner(System.in);
     @Override
-    public Users validationUser() {
-        System.out.print("Login:  ");
-        String login = in.next();
-        System.out.print("Password:  ");
-        String pass = in.next();
+    public Users validationUser(String login, String pass) {
         Users user = userRepository.findByLoginAndPassword(login, pass);
         return user;
+    }
+
+    @Override
+    public Users changePass(Users user, String newpass) {
+        user.setPassword(newpass);
+        return userRepository.saveAndFlush(user);
     }
 }

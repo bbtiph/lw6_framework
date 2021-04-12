@@ -2,8 +2,10 @@ package kz.iitu.lw6_fw.lw6_fw.service;
 
 import kz.iitu.lw6_fw.lw6_fw.entities.Book;
 
+import java.util.List;
+
 public interface BookService {
-    void availableBooks();
+    List<Book> availableBooks();
     Book findById(int id);
-    void updateBook(Book book);
+    Book updateBook(Book book);
 }
