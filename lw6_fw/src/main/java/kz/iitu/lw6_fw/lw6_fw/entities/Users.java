@@ -1,5 +1,6 @@
 package kz.iitu.lw6_fw.lw6_fw.entities;
 
+import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -7,6 +8,7 @@ import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
 
+@Data
 @Entity
 public class Users implements UserDetails {
     @Id
@@ -93,15 +95,4 @@ public class Users implements UserDetails {
         this.reservationList = reservationList;
     }
 
-    @Override
-    public String toString() {
-        return "Users{" +
-                "id=" + id +
-                ", login='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", phone='" + phone + '\'' +
-                ", age=" + age +
-                ", reservationList=" + reservationList +
-                '}';
-    }
 }

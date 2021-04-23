@@ -22,44 +22,5 @@ public class Reservation {
     @JoinColumn(name = "user_id")
     private Users user;
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getDateIssue() {
-        return dateIssue;
-    }
-
-    public void setDateIssue(String dateIssue) {
-        this.dateIssue = dateIssue;
-    }
-
-    public String getDateReturn() {
-        return dateReturn;
-    }
-
-    public void setDateReturn(String dateReturn) {
-        this.dateReturn = dateReturn;
-    }
-
-    public Book getBook() {
-        return book;
-    }
-
-    public void setBook(Book book) {
-        this.book = book;
-    }
-
-
-    @Override
-    public String toString() {
-        return "Reservation \n" +
-                "id=" + id +
-                "\ndateIssue=" + dateIssue +
-                "\ndateReturn=" + dateReturn ;
-    }
 }
